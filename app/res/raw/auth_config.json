@@ -1,9 +1,10 @@
 {
-  "client_id": "",
+  "client_id": "appauth-sample",
   "redirect_uri": "net.openid.appauthdemo:/oauth2redirect",
   "end_session_redirect_uri": "net.openid.appauthdemo:/oauth2redirect",
-  "authorization_scope": "openid email profile",
-  "discovery_uri": "",
+  "end_session_endpoint": "",
+  "authorization_scope": "openid profile",
+  "discovery_uri": "https://idp.domain.com/oauth2/.well-known/openid-configuration",
   "authorization_endpoint_uri": "",
   "token_endpoint_uri": "",
   "registration_endpoint_uri": "",

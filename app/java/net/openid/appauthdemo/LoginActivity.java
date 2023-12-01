@@ -58,11 +58,16 @@ import net.openid.appauth.browser.ExactBrowserMatcher;
 import net.openid.appauthdemo.BrowserSelectionAdapter.BrowserInfo;
 
 import java.util.Collections;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
+
+// Added
+import java.util.HashMap;
+
 
 /**
  * Demonstrates the usage of the AppAuth to authorize a user with an OAuth2 / OpenID Connect
@@ -485,6 +490,11 @@ public final class LoginActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(loginHint)) {
             authRequestBuilder.setLoginHint(loginHint);
         }
+
+        // Added
+        Map<String, String> extraParams = new HashMap<String, String>();
+        extraParams.put("acr_values", "AAL2_DEVICE");
+        authRequestBuilder.setAdditionalParameters(extraParams);
 
         mAuthRequest.set(authRequestBuilder.build());
     }
