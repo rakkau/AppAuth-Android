@@ -24,11 +24,11 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
             <ImageView
-                android:layout_width="96dp"
+                android:layout_width="374dp"
                 android:layout_height="96dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/appauth_96dp"
-                android:contentDescription="@string/openid_logo_content_description"/>
+                android:contentDescription="@string/openid_logo_content_description"
+                app:srcCompat="@drawable/smart_home" />
 
             <!--
             displayed while token requests are occurring
