@@ -1,4 +1,4 @@
-![test-removebg-preview](https://github.com/rakkau/AppAuth-Android/assets/66657117/ad610812-d434-4449-9ab4-05b6a2399557)
+![smart_home](https://github.com/rakkau/AppAuth-Android/assets/66657117/422981a0-3039-4fef-994c-d4847d519c2f)
 
 [![Download](https://img.shields.io/maven-central/v/net.openid/appauth)](https://search.maven.org/search?q=g:net.openid%20appauth)
 [![Javadocs](http://javadoc.io/badge/net.openid/appauth.svg)](http://javadoc.io/doc/net.openid/appauth)
