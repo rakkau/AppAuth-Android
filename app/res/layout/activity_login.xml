@@ -124,6 +124,12 @@
                     android:text="@string/use_pending_intents"/>
 
 
+                <CheckBox
+                    android:id="@+id/force_login_checkbox"
+                    android:layout_width="251dp"
+                    android:layout_height="wrap_content"
+                    android:text="Force Login" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -29,6 +29,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -129,6 +130,14 @@ public final class LoginActivity extends AppCompatActivity {
 
         ((EditText)findViewById(R.id.login_hint_value)).addTextChangedListener(
                 new LoginHintChangeHandler());
+
+        // Added
+        ((CheckBox) findViewById(R.id.force_login_checkbox)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                new RecreateAuthRequestTask().run();
+            }
+        });
 
         if (!mConfiguration.isValid()) {
             displayError(mConfiguration.getConfigurationError(), false);
@@ -494,6 +503,10 @@ public final class LoginActivity extends AppCompatActivity {
         // Added
         Map<String, String> extraParams = new HashMap<String, String>();
         extraParams.put("acr_values", "AAL2_DEVICE");
+        boolean forceLogin = ((CheckBox) findViewById(R.id.force_login_checkbox)).isChecked();
+        if (forceLogin) {
+            authRequestBuilder.setPrompt("login");
+        }
         authRequestBuilder.setAdditionalParameters(extraParams);
 
         mAuthRequest.set(authRequestBuilder.build());
