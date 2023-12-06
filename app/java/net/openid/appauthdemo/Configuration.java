@@ -69,6 +69,7 @@ public final class Configuration {
     private Uri mRegistrationEndpointUri;
     private Uri mUserInfoEndpointUri;
     private boolean mHttpsRequired;
+    private boolean mUseCustomHeader;
 
     public static Configuration getInstance(Context context) {
         Configuration config = sInstance.get();
@@ -174,9 +175,13 @@ public final class Configuration {
     public boolean isHttpsRequired() {
         return mHttpsRequired;
     }
+    public boolean useCustomHeader() { return mUseCustomHeader; }
 
     public ConnectionBuilder getConnectionBuilder() {
         if (isHttpsRequired()) {
+            if (useCustomHeader()) {
+                return ConnectionBuilderWithHeader.INSTANCE;
+            }
             return DefaultConnectionBuilder.INSTANCE;
         }
         return ConnectionBuilderForTesting.INSTANCE;
@@ -230,6 +235,7 @@ public final class Configuration {
         }
 
         mHttpsRequired = mConfigJson.optBoolean("https_required", true);
+        mUseCustomHeader = mConfigJson.optBoolean("use_custom_header", true);
     }
 
     @Nullable
