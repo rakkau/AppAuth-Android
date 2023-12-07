@@ -71,3 +71,18 @@ for development versus production builds.
 Configurations such as this can also specified in multiple ways; this is just one example approach.
 There is also no real harm in hard-coding your configuration into your code, where such dynamic
 reconfiguration is unnecessary. Do what is best for your app and development process.
+
+## How to blacklist a browser
+The following example adds a BrowserBlacklist to prevent the SDK from initializing certain browsers that are not supported by the application, if it finds them. In the example, a blacklist of the Samsung Internet Browser is made.
+
+```java
+private AuthorizationService createAuthorizationService() {
+        Log.i(TAG, "Creating authorization service");
+        AppAuthConfiguration.Builder builder = new AppAuthConfiguration.Builder();
+        builder.setBrowserMatcher(new BrowserBlacklist(
+                VersionedBrowserMatcher.SAMSUNG_BROWSER,
+                VersionedBrowserMatcher.SAMSUNG_CUSTOM_TAB));
+        builder.setConnectionBuilder(mConfiguration.getConnectionBuilder());
+        return new AuthorizationService(this, builder.build());
+}
+```
