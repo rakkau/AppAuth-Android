@@ -52,6 +52,9 @@ The configuration file MUST contain a JSON object. The following properties can 
   - `https_required`: Whether HTTPS connections are required for registration and token requests.
     If omitted, this defaults to true.
 
+  - `use_custom_header`: Whether to use the ConnectionBuilderWithHeader to inject custom headers to
+    the connection or use the default builder. This defaults to true.
+
 ## IDP-specific configuration instructions
 
 Each identity provider is free to submit a set of instructions for configuring this demo app to
